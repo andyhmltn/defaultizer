@@ -25,7 +25,7 @@ var d = function(parameters, callback) {
     var args = Array.prototype.slice.call(arguments, 0)
 
     for(var x=0; x<parameters.length; x++) {
-      if(typeof args[x] == 'undefined') {
+      if(args[x] === void 0) {
         args[x] = parameters[x]
       }
     }
