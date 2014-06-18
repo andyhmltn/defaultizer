@@ -23,13 +23,15 @@
 var d = function(parameters, callback) {
   return function() {
     var args = Array.prototype.slice.call(arguments, 0)
-
-    for(var x=0; x<parameters.length; x++) {
-      if(args[x] === void 0) {
-        args[x] = parameters[x]
-      }
+    if (args.length < parameters.length)
+    {
+        for(var x=0; x<parameters.length; x++)
+        {
+          if(args[x] === void 0) {
+            args[x] = parameters[x]
+          }
+        }
     }
-
     return callback.apply(this, args)
   }
 }
