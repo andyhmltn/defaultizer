@@ -25,7 +25,12 @@ var d = function(parameters, callback) {
     var args = Array.prototype.slice.call(arguments, 0)
     if (args.length < parameters.length)
     {
-      args = args.concat(parameters.slice(args.length));
+        for(var x=0; x<parameters.length; x++)
+        {
+          if(args[x] === void 0) {
+            args[x] = parameters[x]
+          }
+        }
     }
     return callback.apply(this, args)
   }
