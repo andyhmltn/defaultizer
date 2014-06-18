@@ -30,6 +30,6 @@ var d = function(parameters, callback) {
       }
     }
 
-    return callback.apply(null, args)
+    return callback.apply(this, args)
   }
 }
