@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-var d = function(parameters, callback) {
+var d = function(parameters, callback, context) {
   return function() {
     var args = Array.prototype.slice.call(arguments, 0)
 
@@ -30,6 +30,6 @@ var d = function(parameters, callback) {
       }
     }
 
-    return callback.apply(this, args)
+    return callback.apply(context || this, args)
   }
 }
